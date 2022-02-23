@@ -6,7 +6,7 @@ class Solution {
         
         while(l < r){
             if(nums[l]<nums[r]){
-                res = Math.min(res,nums[l]);
+                res = nums[l];
                 break;
             }
             int mid = (l+r)/2;
