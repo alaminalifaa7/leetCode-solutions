@@ -10,6 +10,7 @@
  */
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
+        // not have to reverse solution
         ListNode dummy = new ListNode(0,head);
         ListNode left = dummy;
         ListNode right = head;
@@ -24,5 +25,31 @@ class Solution {
         }
         left.next = left.next.next;
         return dummy.next;
-    }
+      
+//         ListNode firstReversedHead = reverse(head);
+//         ListNode prev = null;
+//         ListNode current = firstReversedHead;
+//         for(int i = 1; i <= n; i++){
+//             ListNode changeLink = current;
+//             if(i = 1){
+//                firstReversedHead. 
+//             }
+            
+//             current = current.next;
+//         }
+//         ListNode secHead = reverse(firstReversedHead);
+//      return   secHead;
+        
+    // }
+     // private ListNode reverse(ListNode h){
+     //        ListNode prev = null;
+     //        ListNode current = h;
+     //        while(current != null){
+     //            ListNode temp = current.next;
+     //            current.next = prev;
+     //            prev = current;
+     //            current = temp;
+     //        }
+     //        return prev;
+        }
 }
