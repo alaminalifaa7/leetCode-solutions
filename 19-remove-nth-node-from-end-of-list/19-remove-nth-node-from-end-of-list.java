@@ -8,6 +8,19 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+/**
+ * my stupid solution
+ *  1 -> 2 -> 3 -> 4 -> 5   n = 5;
+ *  5 -> 4 -> 3 -> 2 -> 1
+ * store the head 
+ *  if(i  ==  n)
+ *      prev(2).next = current(1).next = null; 5 -> 4 -> 3 -> 2 -> null
+ *  
+ *  prev= prev.next; 
+ *  current = current.next 
+ *  reverse again using the head
+ *  2 -> 3 -> 4 -> 5
+ */
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         // not have to reverse solution
@@ -26,9 +39,12 @@ class Solution {
 //         left.next = left.next.next;
 //         return dummy.next;
       
+        //initially reersing the list with a helper method
         ListNode firstReversedHead = reverse(head);
+        
         ListNode prev = new ListNode(0,firstReversedHead);
         ListNode current = firstReversedHead;
+        
         for(int i = 1; i <= n; i++){
            if(n == 1){
               firstReversedHead = current.next;
@@ -41,10 +57,11 @@ class Solution {
             prev = prev.next;
             current = current.next;
         }
-        ListNode secHead = reverse(firstReversedHead);
-     return   secHead;
         
+        ListNode secHead = reverse(firstReversedHead);
+        return  secHead;
     }
+    //reverse a linked list with given head helper function
      private ListNode reverse(ListNode h){
             ListNode prev = null;
             ListNode current = h;
