@@ -34,15 +34,45 @@ class Solution {
 //         // Returning True as all keys are zero
 //         return true;
         
-        char[] tempArray = s.toCharArray();
-        char[] tempArray1 = t.toCharArray();
+//         char[] tempArray = s.toCharArray();
+//         char[] tempArray1 = t.toCharArray();
  
-        // Sorting temp array using
-        Arrays.sort(tempArray);
-        Arrays.sort(tempArray1);
-        if(Arrays.equals(tempArray,tempArray1)){
-            return true;
+//         // Sorting temp array using
+//         Arrays.sort(tempArray);
+//         Arrays.sort(tempArray1);
+        
+//         if(Arrays.equals(tempArray,tempArray1)){
+//             return true;
+//         }
+//         return false;
+        
+        HashMap<Character,Integer> map = new HashMap<Character,Integer>();
+        int count = 0;
+        for(int i=0;i<s.length();i++){
+            if(!map.containsKey(s.charAt(i))){
+                map.put(s.charAt(i),1);
+                count++;
+            }else{
+                 map.put(s.charAt(i),map.get(s.charAt(i))+1);
+            }
         }
-        return false;
+        for(int i=0;i<t.length();i++){
+            if(!map.containsKey(t.charAt(i))){
+                return false;
+                
+            }else{
+                map.put(t.charAt(i),map.get(t.charAt(i))-1);
+                if(map.get(t.charAt(i)) == 0){
+                    count--;
+                }
+            }
+        }
+        if(count==0) {
+            return true;
+        }else{
+            return false;
+        }
+        
+        
     }
 }
