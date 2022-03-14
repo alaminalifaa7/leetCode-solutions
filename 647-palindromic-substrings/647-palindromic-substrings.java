@@ -7,9 +7,12 @@ class Solution {
             
             int l = i;
             int r = i;
-            
+            // System.out.println("for loop->  i-> "+i +" le-> "+ l +"r-> "+ r);
             while(l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r) ){
                 count++;
+                res = s.substring(l,r+1);
+                // System.out.println("odd-length->  "+res);
+                // System.out.println("before expanding odd->  i-> "+i +" le-> "+ l +"r-> "+ r);
                 l -= 1;
                 r += 1;
             }
@@ -17,6 +20,9 @@ class Solution {
             r = i+1;
             while(l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r) ){
                 count++;
+                res = s.substring(l,r+1);
+                // System.out.println("even-length->  "+res);
+                // System.out.println("before expanding even->  i-> "+i +" le-> "+ l +"r-> "+ r);
                 l -= 1;
                 r += 1;
             }
