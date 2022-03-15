@@ -8,7 +8,6 @@ class Solution {
         
 //         while(l < r){
 //             if(nums[l]<nums[r]){
-//                 res = nums[l];
 //                 break;
 //             }
 //             int mid = (l+r)/2;
@@ -29,21 +28,23 @@ class Solution {
         int l = 0;
         int r = nums.length -1;
     
-        while(l < r){
+        while(l <= r){
             if(nums[l]<nums[r]){
+                res = Math.min(res,nums[l]);
                 break;
             }
             int mid = l + (r-l)/2;
-        
-            if(nums[mid]>=nums[l]){
-                l = mid+1;
+            res = Math.min(res,nums[mid]);
+            
+            if(nums[mid] >= nums[l]){
+                l = mid + 1;
             }else{
-                r= mid;
+                r = mid - 1;
             }
             
         }
         
-         return nums[l]; 
+         return res; 
         
         
     }
