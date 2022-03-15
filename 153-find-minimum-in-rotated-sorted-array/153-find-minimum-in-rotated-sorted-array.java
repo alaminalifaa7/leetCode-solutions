@@ -1,15 +1,39 @@
 class Solution {
     public int findMin(int[] nums) {
-        int res = nums[0];
+        
+        // -----------Method 1 -----------
+//         int res = nums[0];
+//         int l = 0;
+//         int r = nums.length -1;
+        
+//         while(l < r){
+//             if(nums[l]<nums[r]){
+//                 res = nums[l];
+//                 break;
+//             }
+//             int mid = (l+r)/2;
+        
+//             if(nums[mid]>=nums[l]){
+//                 l = mid+1;
+//             }else{
+//                 r= mid;
+//             }
+            
+//         }
+        
+//         return nums[l];
+        
+        // -----------Method 2 -----------
+        
+        int res = Integer.MAX_VALUE;;
         int l = 0;
         int r = nums.length -1;
-        
+    
         while(l < r){
             if(nums[l]<nums[r]){
-                res = nums[l];
                 break;
             }
-            int mid = (l+r)/2;
+            int mid = l + (r-l)/2;
         
             if(nums[mid]>=nums[l]){
                 l = mid+1;
@@ -19,6 +43,8 @@ class Solution {
             
         }
         
-        return nums[l];
+         return nums[l]; 
+        
+        
     }
 }
