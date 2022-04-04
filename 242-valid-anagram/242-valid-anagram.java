@@ -3,7 +3,7 @@ class Solution {
         if(s.length()!=t.length()){
             return false;
         }
-        
+// -----------Method - 1 -----------  
 //         HashMap<Character,Integer> map = new HashMap<Character,Integer>();
 //         HashMap<Character,Integer> map1 = new HashMap<Character,Integer>();
 //         char[] ch=s.toCharArray(); 
@@ -33,6 +33,9 @@ class Solution {
 //         }
 //         // Returning True as all keys are zero
 //         return true;
+       
+// -----------Method - 2 -----------
+        
         
 //         char[] tempArray = s.toCharArray();
 //         char[] tempArray1 = t.toCharArray();
